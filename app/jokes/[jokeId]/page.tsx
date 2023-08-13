@@ -34,29 +34,6 @@ export async function generateMetadata({
   };
 }
 
-/*
-export default async function JokeRoute({
-  params,
-}: { params: { jokeId: string } }) {
-  const data = await loader(params);
-  return (
-    <div>
-      <p>Here&quot;s your hilarious joke:</p>
-      <p>{data.joke.content}</p>
-      <Link href={`/jokes/${params.jokeId}`}>
-        &quot;{data.joke.name}&quot; Permalink
-      </Link>
-      <form method="post" action={action}>
-        <input type="hidden" name="jokeId" value={params.jokeId} />
-        <button className="button" name="intent" type="submit" value="delete">
-          Delete
-        </button>
-      </form>
-    </div>
-  );
-}
-*/
-
 export default async function JokeRoute({
   params,
 }: { params: { jokeId: string } }) {

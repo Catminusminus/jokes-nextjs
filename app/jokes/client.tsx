@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useTransition } from "react";
 import { randomLoader, loader } from "./loader";
 import { useSetRandomJoke } from "./hooks";
+import { css } from "../../styled-system/css";
 
 export function RandomLink({
   data,
@@ -22,8 +23,20 @@ export function RandomLink({
       <Link onClick={handleSubmit} href="/jokes">
         Get a random joke
       </Link>
-      <p>Here are a few more jokes to check out:</p>
-      <ul>
+      <p
+        className={css({
+          marginBlockStart: "16px",
+          marginBlockEnd: "16px",
+        })}
+      >
+        Here are a few more jokes to check out:
+      </p>
+      <ul
+        className={css({
+          listStyleType: "disc",
+          paddingInlineStart: "40px",
+        })}
+      >
         {data.jokeListItems.map(({ id, name }) => (
           <li key={id}>
             <Link href={`/jokes/${id}`}>{name}</Link>

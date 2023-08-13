@@ -1,3 +1,5 @@
+@layer reset, base, tokens, recipes, utilities;
+
 @font-face {
     font-family: "baloo";
     src: url("/fonts/baloo/baloo.woff") format("woff");

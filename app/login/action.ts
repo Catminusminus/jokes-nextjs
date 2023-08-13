@@ -2,7 +2,6 @@
 
 import { db } from "../utils/db.server";
 import { login, createUserSession, register } from "../utils/session.server";
-import { signIn } from "next-auth/react";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
