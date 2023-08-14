@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { randomLoader } from "./loader";
 import { Random } from "./random";
 
@@ -7,7 +6,6 @@ export default async function JokesIndexRoute() {
   return (
     <div>
       <Random data={data} />
-      <Link href="/jokes">hi</Link>
     </div>
   );
 }
