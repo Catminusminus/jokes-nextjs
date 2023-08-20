@@ -4,7 +4,7 @@ import { logout } from "../utils/session.server";
 import Link from "next/link";
 import { ClientRoot } from "./clientroot";
 import { loader } from "./loader";
-import { css } from "../../styled-system/css";
+import { css } from "excss";
 
 export default async function JokesRoute({
   children,
@@ -14,33 +14,33 @@ export default async function JokesRoute({
   return (
     <body>
       <div
-        className={`${css({
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "inherit",
-        })} jokes-layout`}
+        className={`${css`
+          display: flex;
+          flex-direction: column;
+          min-height: inherit;
+        `} jokes-layout`}
       >
         <header
-          className={`${css({
-            paddingTop: "1rem",
-            paddingBottom: "1rem",
-            borderBottom: "1px solid var(--color-border)",
-            display: "block",
-          })} jokes-header`}
+          className={`${css`
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--color-border);
+            display: block;
+          `} jokes-header`}
         >
           <div
-            className={`${css({
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            })} container`}
+            className={`${css`
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            `} container`}
           >
             <h1
-              className={`${css({
-                fontFamily: "var(--font-display)",
-                fontSize: "3rem!",
-                fontWeight: "bold",
-              })} home-link`}
+              className={`${css`
+                font-family: var(--font-display);
+                font-size: 3rem;
+                font-weight: bold;
+              `} home-link`}
             >
               <Link
                 href="/"
@@ -50,29 +50,27 @@ export default async function JokesRoute({
                 legacyBehavior
               >
                 <a
-                  className={css({
-                    color: "var(--color-foreground)!",
-                    _hover: {
-                      textDecoration: "none!",
-                    },
-                  })}
+                  className={css`
+                    color: var(--color-foreground);
+                    &:hover {
+                      text-decoration: none;
+                    }
+                  `}
                 >
                   <span
-                    className={`${css({
-                      sm: {
-                        display: "none",
-                      },
-                    })} logo`}
+                    className={`${css`
+                      @media print, (min-width: 640px) {
+                        display: none;
+                      }`} logo`}
                   >
                     🤪
                   </span>
                   <span
-                    className={`${css({
-                      display: "none",
-                      sm: {
-                        display: "block",
-                      },
-                    })} logo-medium`}
+                    className={`${css`
+                      display: none;
+                      @media print, (min-width: 640px) {
+                          display: block;
+                      }`} logo-medium`}
                   >
                     J🤪KES
                   </span>
@@ -81,12 +79,11 @@ export default async function JokesRoute({
             </h1>
             {data.user ? (
               <div
-                className={`${css({
-                  display: "flex",
-                  gap: "1rem",
-                  alignItems: "center",
-                  whiteSpace: "nowrap",
-                })} user-info`}
+                className={`${css`
+                  display: flex;
+                  gap: 1rem;
+                  align-items: center;
+                  white-space: nowrap;`} user-info`}
               >
                 <span>{`Hi ${data.user.username}`}</span>
                 <form action={logout}>
@@ -98,13 +95,12 @@ export default async function JokesRoute({
             ) : (
               <Link href="/login" passHref legacyBehavior>
                 <a
-                  className={css({
-                    _hover: {
-                      textDecorationStyle: "wavy!",
-                      textDecorationThickness: "1px!",
-                    },
-                    fontWeight: "450",
-                  })}
+                  className={css`
+                    &:hover {
+                      text-decoration-style: wavy;
+                      text-decoration-thickness: 1px;
+                  }
+                  `}
                 >
                   Login
                 </a>
@@ -113,36 +109,34 @@ export default async function JokesRoute({
           </div>
         </header>
         <main
-          className={`${css({
-            paddingTop: "2rem",
-            paddingBottom: "2rem",
-            flex: "1 1 100%",
-            display: "block",
-            sm: {
-              paddingTop: "3rem",
-              paddingBottom: "3rem",
-            },
-          })} jokes-main`}
+          className={`${css`
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            flex: 1 1 100%;
+            @media print, (min-width: 640px) {            
+              padding-top: 3rem;
+              padding-bottom: 3rem;
+            }
+          `} jokes-main`}
         >
           <div
-            className={`${css({
-              display: "flex",
-              gap: "1rem",
-              flexDirection: "column",
-              sm: {
-                flexDirection: "row",
-              },
-            })} container`}
+            className={`${css`
+              display: flex;
+              gap: 1rem;
+              @media (max-width: 639px) {
+                flex-direction: column;
+              }
+            `} container`}
           >
             <ClientRoot data={data}>{children}</ClientRoot>
           </div>
         </main>
         <footer
-          className={`${css({
-            paddingTop: "2rem",
-            paddingBottom: "1rem",
-            borderTop: "1px solid var(--color-border)",
-          })} jokes-footer`}
+          className={`${css`
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            border-top: 1px solid var(--color-border);
+          `} jokes-footer`}
         >
           <div className="container">
             <Link href="api/rss">RSS</Link>

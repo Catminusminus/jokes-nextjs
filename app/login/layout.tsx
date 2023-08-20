@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { css } from "../../styled-system/css";
+import { css } from "excss";
 
 const description = "Login to submit your own jokes to Next.js Jokes!";
 
@@ -15,7 +15,7 @@ export default function LoginRoute({
   children,
 }: { children: React.ReactNode }) {
   return (
-    <body className={css({ backgroundImage: "var(--gradient-background)" })}>
+    <body className={css`background-image: var(--gradient-background);`}>
       {children}
     </body>
   );

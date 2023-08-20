@@ -4,7 +4,7 @@ import { loader } from "./loader";
 import { RandomLink } from "./client";
 import { RecoilRoot } from "recoil";
 import type { PropsWithChildren } from "react";
-import { css } from "../../styled-system/css";
+import { css } from "excss";
 
 export function ClientRoot({
   data,
@@ -13,24 +13,24 @@ export function ClientRoot({
   return (
     <RecoilRoot>
       <div
-        className={`${css({
-          maxWidth: "12rem",
-        })} jokes-list`}
+        className={`${css`
+          max-width: 12rem;
+        `} jokes-list`}
       >
         <RandomLink data={data} />
         <Link
           href="/jokes/new"
-          className={`${css({
-            marginBlockStart: "16px!",
-          })} button`}
+          className={`${css`
+            margin-block-start: 16px;
+          `} button`}
         >
           Add your own
         </Link>
       </div>
       <div
-        className={`${css({
-          flex: "1",
-        })} jokes-outlet`}
+        className={`${css`
+          flex: 1;
+        `} jokes-outlet`}
       >
         {children}
       </div>

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { randomLoader } from "./loader";
 import { useRandomJoke } from "./hooks";
-import { css } from "../../styled-system/css";
+import { css } from "excss";
 
 export function Random({
   data,
@@ -11,19 +11,19 @@ export function Random({
   return (
     <>
       <p
-        className={css({
-          marginBlockStart: "16px",
-        })}
+        className={css`
+          margin-block-start: 16px;
+        `}
       >
         Here&quot;s a random joke:
       </p>
       {randomJokeData ? (
         <>
           <p
-            className={css({
-              marginBlockStart: "16px",
-              marginBlockEnd: "16px",
-            })}
+            className={css`
+              margin-block-start: 16px;
+              margin-block-end: 16px;
+            `}
           >
             {randomJokeData.randomJoke.content}
           </p>
@@ -34,10 +34,10 @@ export function Random({
       ) : (
         <>
           <p
-            className={css({
-              marginBlockStart: "16px",
-              marginBlockEnd: "16px",
-            })}
+            className={css`
+              margin-block-start: 16px;
+              margin-block-end: 16px;
+            `}
           >
             {data.randomJoke.content}
           </p>

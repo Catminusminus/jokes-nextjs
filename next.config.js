@@ -1,3 +1,9 @@
+const { createExcss } = require("excss/next");
+
+const withExcss = createExcss({
+  // excss options
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -5,4 +11,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withExcss(nextConfig);
