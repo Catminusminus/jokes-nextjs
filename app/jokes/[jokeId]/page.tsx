@@ -1,7 +1,5 @@
 import { db } from "../../utils/db.server";
 import { getUserId } from "../../utils/session.server";
-import Link from "next/link";
-import { redirect } from "next/navigation";
 import { JokeDisplay } from "../components/joke";
 
 const loader = async (params: { jokeId: string }) => {

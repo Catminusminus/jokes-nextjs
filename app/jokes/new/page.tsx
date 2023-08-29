@@ -21,9 +21,7 @@ function validateJokeName(name: string) {
   }
 }
 
-type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
-
-export default function NewJokeRoute() {
+export default function NewJokeRouteIndex() {
   const [actionData, setActionData] = useState<Awaited<
     ReturnType<typeof action>
   > | null>(null);

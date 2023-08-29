@@ -2,14 +2,10 @@
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { parse } from "cookie";
-
 import { db } from "./db.server";
 import { createCookieSessionStorage } from "./cookie.server";
 import { redirectWithCookie } from "./redirect.server";
 import { headers } from "next/headers";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
 import { RedirectType } from "./redirect.server";
 
 type LoginForm = {
